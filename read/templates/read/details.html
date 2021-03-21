@@ -1,0 +1,74 @@
+{% extends 'read/basee.html' %}
+
+{% block title %}{{book.title}}{% endblock %}
+
+{% block body %}
+    <section id="detail" class="mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-3">
+              <!-- Image here -->
+              <img src="{{book.cover.url}}" alt="" class="img-fluid">
+              <!-- /images -->
+              <!-- Medsos -->
+
+                <div class="d-flex ml-5">
+
+                  <p class="mt-3 pr-3"><i class="fab fa-instagram"></i></p>
+                  <p class="mt-3 pr-3"> <i class="fab fa-facebook"></i></p>
+                  <p class="mt-3 pr-3"><i class="fab fa-whatsapp"></i></p>
+                </div>
+              <!-- /Medsos -->
+          </div>
+          <div class="col-sm-6">
+            <h1 class="text-center">{{book.title}}</h1>
+            <div class="ml-3 mt-4 ">{{book.description | safe}}</div>
+          </div>
+          <div class="col-sm-3 w-100 mt-5">
+            <h4>Author : </h4>
+            <p>{{book.author}}</p>
+            <h4>Date : </h4>
+            <p>{{book.upload_date | date:" M d, Y - H:i"}}</p>
+            <h4>Category:</h4>
+            <p>{% for cat in book.category.all %} {{cat}},&nbsp; {% endfor %}</p>
+            <h4>Ratings : </h4>
+            <div class="d-flex">
+
+              <div class="col" id="rateYo" >
+
+              </div>
+              <p class="col">{{book.total_rating}}</p>
+            </div>
+            {% if user.is_authenticated %}
+            <h4>Book Owner : </h4>
+            <a class="text-decoration-none text-dark">{{book.uploader}}</a> or <a href="https://wa.me/{{ profile.phone }}">Chat in WhatsApp</a>
+
+            <a href="{{book.book.url}}" target="_blank" class="btn btn-sm mt-4 btn-primary rounded-pill w-100">Baca</a>
+            <a href="{{book.book.url}}" download="{{book.book.url}}" class="btn btn-sm mt-2 btn-danger rounded-pill w-100">Download</a>
+            {% else %}
+            <a href="/accounts/login/?next=/{{ book.get_absolute_url }}" class="btn btn-sm mt-4 btn-primary rounded-pill w-100">Login terlebih dahulu</a>
+            {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="body" class="mt-5">
+      <div class="container">
+        {% if not book.comment.all %}
+        No Comments Yet.....
+        <a href="{% url 'read:add-comment' book.link %}" class="text-italic"> Add One</a>
+        {% else %}
+        <a href="{% url 'read:add-comment' book.link %}" class="btn btn-primary">Add Comments</a>
+        <br><br>
+          {% for comment in book.comment.all %}
+          <strong>{{comment.name}}</strong>
+          <br>
+          {{comment.body | safe}}
+          <hr>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends 'read/basee.html' %}
+{% load static %}
+{% block title %}Literacy Indonesia{% endblock %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron bg-primary">
+        <div class="container d-flex flex-column align-items-center ">
+           <img class="img-fluid" src="{% static 'baru/assets/images/Jumbotron.svg' %}" alt="">
+            <h1 class="mt-5 mb-3">Belajar apapun disini melalui buku yang sudah tersedia diwebsite ini.</h1>
+            <a class="btn btn-danger w-25 mb-3 ">List Buku</a>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{% static 'baru/assets/images/Asset 1.svg' %}" alt="">
+                </div>
+                <div class="col-lg-6 caption mt-5 pl-5">
+                    <h3 class="pt-3">Gratis E-Books</h3>
+                    <p class="text-secondary pt-3">Baca buku gratis seperti buku sekolah dari SD, SMP, SMK atau SMA, buku buku tersebut dibagikan secara gratis untuk menunjang pelajaran kamu supaya lebih giat membaca buku</p>
+                    <a href="" class="btn btn-primary mt-3">Explore buku</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="favorite-book" class="mt-5 mb-5 bg-primary text-white pt-5 pb-5">
+        <h1 class="text-center  font-weight-bold">Favorite Book</h1>
+        <p class="text-center">Berikut ini adalah buku favorite yang diambil berdasarkan rating dan jumlah pembacanya </p>
+        <div class="container">
+            <div class="row">
+            {% for book in fav_books %}
+                <div class="col-sm-4 mt-5">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ book.cover.url }}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text text-dark font-weight-bold">{{ book.title }}</p>
+                            <a href="{{ book.get_absolute_url }}" class="text-info">Kunjungi buku</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1 class="text-primary font-weight-bold">Cari buku </h1>
+                    <p class="text-secondary">Cari buku apapun yang kamu suka entah itu komik atau buku pelajaran yang kamu sukai, lalu pelajari buku tersebut secara perlahan lahan sampai buku itu habis kamu baca </p>
+                </div>
+
+                <div class="col-sm-6">
+                    <form action="" method="post">
+                        <div class="input-group " style="margin-top:60px">
+                            <input type="text" class="form-control border-0 ">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="pencapaian" class="bg-primary">
+        <div class="container mt-5">
+            <div class="d-flex flex-column align-items-center ">
+            <h1 class="text-white mt-4">Pencapaian</h1>
+            <p class="text-white mt-4 mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam dolorem excepturi eligendi eius maiores nihil fugit voluptate delectus commodi sed! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Exercitationem, quia fuga maxime ratione veniam reprehenderit ab unde et provident dicta harum rem, cupiditate cumque officia accusamus dolor asperiores. Asperiores, sunt.</p>
+
+            </div>
+            <div class="row pb-5">
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="{% static 'baru/assets/images/Book.svg' %}" alt="" class="pt-3" height="120">
+                        <div class="card-body text-center">
+                            <h4>Total Buku</h4>
+                            <p>{{ book_total }} Buku</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="{% static 'baru/assets/images/Member.svg' %}" alt="" class="pt-3" height="120">
+                        <div class="card-body text-center pb-3">
+                            <h4>Total Member</h4>
+                            <p>{{ member }} Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="card">
+                        <img src="{% static 'baru/assets/images/Kategori_1.svg' %}" alt="" class="pt-3" height="120">
+                        <div class="card-body text-center">
+                            <h4>Total Kategori</h4>
+                            <p>{{ category }} kategori</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

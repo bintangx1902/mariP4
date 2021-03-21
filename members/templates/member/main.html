@@ -1,0 +1,23 @@
+{% extends 'member/base.html' %}
+
+{% block title %}Main Menu{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <div class="container mt-3 ">
+        <h1 class="display-4">Hello, {{ userprofile.name }}</h1>
+        <p class="lead">Here this Your Number : {{ userprofile.phone }}.</p>
+        <hr class="my-4">
+        <div class="d-flex">
+            <form action="{% url 'my:upload-a-book' %}" class="mx-3">
+                <button class="btn btn-lg btn-primary">Upload A Book Now</button>
+            </form>
+            <form action="{% url 'profile:update-profile' userprofile.pk  %}">
+                <button class="btn btn-primary btn-lg">Update Data</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

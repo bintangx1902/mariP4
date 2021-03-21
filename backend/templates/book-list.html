@@ -1,0 +1,273 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Uploaded Books
+{% endblock %}
+
+{% block body %}
+        <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-nowrap"></div>
+                    <div class="col-md-6 mt-5">
+                        <div class="text-md-right dataTables_filter" id="dataTable_filter">
+                            <form class="border-right-0 d-none d-sm-inline-block mr-auto my-2 my-md-0 mw-100 navbar-search justify-content-end">
+                                <div class="input-group"><input class="form-control small" type="text" name="q" placeholder="Search for ...">
+                                    <div class="input-group-append"><button class="btn btn-primary py-0 rounded-right" type="button">&#8594;</button></div>
+                                 </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="portfolio-block projects-cards">
+            <div class="container">
+                <div class="heading">
+                    <h2>My Uploaded Books</h2>
+                </div>
+                <div class="row">
+                    {% for book in object_list %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card border-0">
+                            <a href="{% url 'my:book-detail' book.link %}"><img class="card-img-top scale-on-hover" src="{{book.cover.url}}" alt="Card Image"></a>
+                            <div class="card-body">
+                                <h6><a href="{% url 'my:book-detail' book.link %}">{{book.title}}</a></h6>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+<div class="jumbotron bg-primary">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 mb-5">
+                    <div class="d-flex justify-content-center">
+                     <img class="img-fluid " src="assets/images/bahasasunda.jpg" alt="">
+
+                    </div>
+                </div>
+                <div class="col-lg-6">
+
+                    <h1 class="text-white font-weight-bold">Kamus bahasa sunda</h1>
+                    <p class="text-white">Buku ini sangat cocok untuk anda jika mau belajar bahasa sunda, dengan bahasan yang menarik sehingga anda menjadi lebih paham bahasa sunda dan juga lebih mendalami bahasa sunda</p>
+                    <a href="" class="btn btn-danger   ">Detail Buku</a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="book">
+       <div class="container">
+         <div class="card mb-5">
+           <div class="card-body">
+            <div class="input-group ">
+              <input type="text" class="form-control" placeholder="Cari buku yang anda inginkan disini">
+              <button type="submit" class="btn btn-primary" >Search</button>
+            </div>
+           </div>
+         </div>
+
+
+            <div class="row">
+              <div class="col-lg-8">
+                <ul class="nav nav-pills nav-fill">
+                  <li class="nav-item">
+                  <a class="nav-link active" href="#">Edukasi</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="#">Kesehatan</a>
+                  </li>
+                  <li class="nav-item">
+                  <a class="nav-link" href="#">Ekonomi</a>
+                  </li>
+
+
+              </ul>
+
+                <div class="row mt-5">
+                  <div class="col-lg-4 mt-4">
+                    <div class="card border-0">
+                      <img src="assets/images/pengingkatan_prestasi_belajar.jpg" alt="" class="card-img-top img-fluid">
+                      <div class="card-body">
+                        <p>Peningkatan cara belajar siswa mengenai agama</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mt-4">
+                    <div class="card border-0">
+                      <img src="assets/images/pengingkatan_prestasi_belajar.jpg" alt="" class="card-img-top img-fluid">
+                      <div class="card-body">
+                        <p>Peningkatan cara belajar siswa mengenai agama</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mt-4">
+                    <div class="card border-0">
+                      <img src="assets/images/pengingkatan_prestasi_belajar.jpg" alt="" class="card-img-top img-fluid">
+                      <div class="card-body">
+                        <p>Peningkatan cara belajar siswa mengenai agama</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mt-4">
+                    <div class="card border-0">
+                      <img src="assets/images/pengingkatan_prestasi_belajar.jpg" alt="" class="card-img-top img-fluid">
+                      <div class="card-body">
+                        <p>Peningkatan cara belajar siswa mengenai agama</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mt-4">
+                    <div class="card border-0">
+                      <img src="assets/images/pengingkatan_prestasi_belajar.jpg" alt="" class="card-img-top img-fluid">
+                      <div class="card-body">
+                        <p>Peningkatan cara belajar siswa mengenai agama</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 mt-4">
+                    <div class="card border-0">
+                      <img src="assets/images/pengingkatan_prestasi_belajar.jpg" alt="" class="card-img-top img-fluid">
+                      <div class="card-body">
+                        <p>Peningkatan cara belajar siswa mengenai agama</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+                   <nav aria-label="Page navigation example" class="mt-3">
+
+                  <ul class="pagination">
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                      </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item">
+                      <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+
+              </div>
+              <div class="col-lg-4">
+                <div class="card border-0">
+
+                  <div class="card-body">
+                    <h3 class="font-weight-bold ">Favorite book</h3>
+                    <hr class="mt-4">
+                    <div class="d-flex">
+                      <img height="150" class="mt-3"  src="assets/images/salam.jpg" alt="">
+                      <div class="caption ml-3">
+                        <p class="font-weight-bold">Siswa handal pelajaran madrasah</p>
+                        <p>Dengan ini anda bisa melihat bagaimana sih cara belajar anak madrasah</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex">
+                      <img height="150" class="mt-3"  src="assets/images/salam.jpg" alt="">
+                      <div class="caption ml-3">
+                        <p class="font-weight-bold">Siswa handal pelajaran madrasah</p>
+                        <p>Dengan ini anda bisa melihat bagaimana sih cara belajar anak madrasah</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex">
+                      <img height="150" class="mt-3"  src="assets/images/salam.jpg" alt="">
+                      <div class="caption ml-3">
+                        <p class="font-weight-bold">Siswa handal pelajaran madrasah</p>
+                        <p>Dengan ini anda bisa melihat bagaimana sih cara belajar anak madrasah</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex">
+                      <img height="150" class="mt-3"  src="assets/images/salam.jpg" alt="">
+                      <div class="caption ml-3">
+                        <p class="font-weight-bold">Siswa handal pelajaran madrasah</p>
+                        <p>Dengan ini anda bisa melihat bagaimana sih cara belajar anak madrasah</p>
+                        <a href="" class="text-primary">Lihat buku</a>
+                      </div>
+                    </div>
+                    <hr>
+
+
+
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+    <div class="favorite mb-5">
+      <div class="container">
+        <h1 class="mt-4">Author terfavorite</h1>
+        <div class="row">
+          <div class="col-sm-4 mt-5">
+            <div class="card">
+              <img height="400" src="assets/images/pasti-pintar.jpg" alt="" class="card-img-top">
+              <div class="card-body">
+                <p class="font-weight-bold">Pasti pintar disetiap mata pelajaran</p>
+                <a href="" class="text-primary">Lihat buku</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-4 mt-5">
+            <div class="card">
+              <img height="400" src="assets/images/pasti-pintar.jpg" alt="" class="card-img-top">
+              <div class="card-body">
+                <p class="font-weight-bold">Pasti pintar disetiap mata pelajaran</p>
+                <a href="" class="text-primary">Lihat buku</a>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-4 mt-5">
+            <div class="card">
+              <img height="400" src="assets/images/pasti-pintar.jpg" alt="" class="card-img-top">
+              <div class="card-body">
+                <p class="font-weight-bold">Pasti pintar disetiap mata pelajaran</p>
+                <a href="" class="text-primary">Lihat buku</a>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+{% endblock %}
